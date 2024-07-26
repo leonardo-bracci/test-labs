@@ -1,0 +1,6 @@
+a
+apple
+banana
+cat
+dart
+elephant

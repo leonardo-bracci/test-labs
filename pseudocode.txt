@@ -1,0 +1,45 @@
+
+
+BOGGLE GAME
+
+start game
+    load dictionary into memory
+        create trie to store dictionary
+            create trieNode struct to store one letter at a time
+                each node contains
+                    an "end of word" flag
+                    26 child trieNode
+            create the root of the trie 
+            set all children nodes to NULL to indicate dead ends
+            set the flag to negative because is not the end of the word
+        read words from file into trie
+            open dictionary.txt
+                FILE *... = fopen("...", "r+");
+                Error message if not possible
+            read one string at a time
+            create a temporary trieNode
+            check if the first letter of the string exists in the root of the trie
+            set the temporary node to the value of the cildren of the root corresponding of the first letter of the string
+            do the same for the next letter until you reach the end of the string
+            set the flag to positive to indicate the end of a word
+            start next string
+    generate square of letters
+        create an array of 16 string of 6 characters to represent the dices
+        randomly pick one char from each dice to populate the square 
+        print the square to the terminal        
+    analize possible words in the square
+        start from each letter in the dice
+        recursevely check each path without repetition
+        match each new word with the dictionary trie and stop if it reaches a dead end 
+        every time a word is found add it to a hash table
+    user types words
+        check for unaccepted characters
+        check for too long words
+        check if word exists in the square
+            if yes
+                update score
+            if no
+                display error message
+    set game over conditions
+end game
+    
