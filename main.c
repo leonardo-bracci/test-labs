@@ -81,6 +81,7 @@ trieNode generateTrieNode() {
         node.children[i] = NULL;
     }
     return node;
+    
 }
 
 // Add word to trie
