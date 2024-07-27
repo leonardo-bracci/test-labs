@@ -15,6 +15,28 @@ trieNode* generateTrieNode() {
     return node;
 }
 
+// Load dictionary into memory
+void load_dictionary(trieNode* root) {
+    FILE *dictionary = fopen("dictionary/dictionary.txt", "r");
+    if (dictionary == NULL) {
+        printf("Error opening file\n");
+        exit(1);
+    }
+    char buffer[LENGTH + 2];
+    while (fscanf(dictionary, "%s", buffer) == 1) {
+        char word[LENGTH + 1];
+        int j = 0;
+        for (int i = 0; buffer[i] != '\0'; i++) {
+            if (buffer[i] >= 'a' && buffer[i] <= 'z') {
+                word[j++] = buffer[i];
+            }
+        }
+        word[j] = '\0';
+        addWordToTrie(root, word);
+    }
+    fclose(dictionary);
+}
+
 // Add word to trie
 void addWordToTrie(trieNode* root, char* word) {
     // Create a temporary node to traverse the trie, the pointer points at the same memory location as the root
@@ -60,24 +82,4 @@ void freeTrie(trieNode* root) {
     free(root);
 }
 
-// Load dictionary into memory
-void load_dictionary(trieNode* root) {
-    FILE *dictionary = fopen("dictionary/dictionary_short.txt", "r");
-    if (dictionary == NULL) {
-        printf("Error opening file\n");
-        exit(1);
-    }
-    char buffer[LENGTH + 2];
-    while (fscanf(dictionary, "%s", buffer) == 1) {
-        char word[LENGTH + 1];
-        int j = 0;
-        for (int i = 0; buffer[i] != '\0'; i++) {
-            if (buffer[i] >= 'a' && buffer[i] <= 'z') {
-                word[j++] = buffer[i];
-            }
-        }
-        word[j] = '\0';
-        addWordToTrie(root, word);
-    }
-    fclose(dictionary);
-}
+

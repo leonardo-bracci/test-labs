@@ -11,10 +11,15 @@ int main() {
     printf("Dictionary loaded into memory\n");
 
     // Print trie
-    char word[30];
-    printTrie(root, word, 0);
-    printf("Trie printed\n");
-    
+    char yesOrNo;
+    printf("Do you want to print the trie? (y/n): ");
+    fscanf(stdin, " %c", &yesOrNo);
+    if (yesOrNo == 'y') {
+        char word[LENGTH + 1];
+        printTrie(root, word, 0);
+        printf("Trie printed\n");
+    }
+
     // Free trie
     freeTrie(root);
     printf("All memory of trie freed\n");
