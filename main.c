@@ -107,7 +107,6 @@ void insert(const char *word) {
         current = current->children[index];
         word++;
     }
-
     
     current->isEndOfWord = 1;
 }
