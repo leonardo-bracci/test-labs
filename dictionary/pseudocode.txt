@@ -24,8 +24,10 @@ start game
             set the flag to positive to indicate the end of a word
             start next string
     generate square of letters
-        create an array of 16 string of 6 characters to represent the dices
+        initiate an a 3D array of chars to represent the 4x4 square 
+        create an array of 16 strings of 6 characters to represent the dices
         randomly pick one char from each dice to populate the square 
+        set the visited flag to 0
         print the square to the terminal        
     analize possible words in the square
         start from each letter in the dice

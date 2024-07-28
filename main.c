@@ -1,5 +1,14 @@
+
+/*
+GAME OF BOGGLE
+to compile: gcc -o boggle main.c trie.c
+to run: ./boggle
+*/
+
+
 #include <stdio.h>
 #include "trie.h"
+#include "square.h"
 
 int main() {
     // Initialize trie
@@ -19,6 +28,10 @@ int main() {
         printTrie(root, word, 0);
         printf("Trie printed\n");
     }
+
+    // generate 4x4 square of letters
+    generateGrid(); 
+
 
     // Free trie
     freeTrie(root);
